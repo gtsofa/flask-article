@@ -1,4 +1,4 @@
-<!-- templates/articles.html -->
+<!-- templates/register.html -->
 
 {% extends 'layouts.html' %}
 
@@ -24,11 +24,6 @@
         </div>
         <p input type="submit" class="btn btn-primary" value="Submit"></p>
     </form>
-    <ul class="list-group">
-    {% for article in articles %}
-        <li class="list-group-item"><a href="article/{{article.id}}">{{article.title}}</a></li>
-    {% endfor %}
-    </ul>
 </div>
 {% endblock %}
 
