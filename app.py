@@ -65,7 +65,7 @@ def register():
         password = sha256_crypt.encrypt(str(form.password.data))
         
         # create cursor
-        cur = mysql.connection.cursor
+        cur = mysql.connection.cursor()
         
         cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
         
@@ -86,4 +86,5 @@ def register():
 
 if __name__ == '__main__':
     #app.run(debug=True)
+    app.debug = True
     app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))#c9
