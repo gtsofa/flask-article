@@ -58,6 +58,7 @@ class RegisterForm(Form):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
+    # if form is submitted..
     if request.method == 'POST' and form.validate():
         name = form.name.data
         email = form.email.data
@@ -75,6 +76,7 @@ def register():
         # close connection
         cur.close()
         
+        # set a flash message with a category
         flash('You are now registered and can log in', 'success')
         
         redirect(url_for('index'))
@@ -85,5 +87,5 @@ def register():
 
 
 if __name__ == '__main__':
-    #app.run(debug=True)
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))#c9
+    app.run(debug=True)
+    #app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))#c9
